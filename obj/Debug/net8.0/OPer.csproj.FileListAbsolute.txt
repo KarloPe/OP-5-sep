@@ -35,3 +35,4 @@ C:\Users\Kalii\Desktop\labo\OPer\obj\Debug\net8.0\refint\OPer.dll
 C:\Users\Kalii\Desktop\labo\OPer\obj\Debug\net8.0\OPer.pdb
 C:\Users\Kalii\Desktop\labo\OPer\obj\Debug\net8.0\OPer.genruntimeconfig.cache
 C:\Users\Kalii\Desktop\labo\OPer\obj\Debug\net8.0\ref\OPer.dll
+C:\Users\Kalii\Desktop\labo\OPer\obj\Debug\net8.0\OPer.sourcelink.json

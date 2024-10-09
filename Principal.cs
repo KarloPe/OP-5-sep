@@ -7,9 +7,7 @@ namespace libreria
 {
 
     class Pricipal{
-
-        
-
+    
         static void Main(){
 
             List<Persona> listaPersona = new List<Persona>();
@@ -33,9 +31,13 @@ namespace libreria
                             case "4":
                                 insertarPersona(listaPersona);
                                 break;
-                            /*case "5":
-                                mostrarEscalar
-*/
+                            case "5":
+                                contarNomPer();
+                                break;
+                            case "6":
+                                muestraTodo();
+                                break;
+
                             default:
                                 Console.WriteLine("Opción Incorrecta...");
                                 Console.ReadKey();
@@ -129,6 +131,7 @@ namespace libreria
                 }
     }
 
+//              BD   SQL
         public static void insertarPersona(List<Persona> rlistaPersona) {
         
             conexionBD con = new conexionBD();
@@ -147,27 +150,70 @@ namespace libreria
             
         }
 
+        public static void contarNomPer () {
 
+            conexionBD con = new conexionBD();
+            con.conectar();
+            
+            string nombre;
 
+            Console.Clear();            
+            
+            Console.Write ("Ingrese nombre: ");
+            nombre = Console.ReadLine ();
+            Console.WriteLine ("");
+            Console.WriteLine ("El nombre ingresado existe {0} veces", con.countPersonNameBD(nombre) );
+            Console.WriteLine ("Presione una tecla para continuar <3");
+            Console.ReadKey();
 
+        }
 
+        
 
+        public static void muestraTodo() {
+
+            Console.WriteLine ("entramos a muestratodo()");
+            Console.ReadKey();
+
+            conexionBD con = new conexionBD();
+            con.conectar();
+
+            Console.Clear();
+            con.mostrarAlumnos();
+
+            
+            Console.WriteLine ("");
+
+            //Console.WriteLine ("lalalallaa", con.muestraTodoBD() );
+
+            Console.WriteLine ("Presione una tecla para continuar <3");
+            Console.ReadKey();
+            /*
+            Comando.CommandText = "select * from Persona";
+            
+                        
+            Comando.CommandType = CommandType.Text;  //va siempre asi
+            Conector.Open();
+            Comando.ExecuteReader();
+            Conector.Close();
+            */
+        }
+
+/// ////////////////////////////////////////////////////////////////////
         public static string mostrarMenu(){
 
             string opcion;
 
             Console.Clear();
-
            
             Console.WriteLine("- Menú -");
             Console.WriteLine("--------");
-
-            Console.WriteLine("");
             Console.WriteLine("1.- Crear Alumno");
             Console.WriteLine("2.- Mostrar Alumnos");
             Console.WriteLine("3.- Buscar Alumno");
             Console.WriteLine("4.- Exportar alumnos a BD");
-
+            Console.WriteLine("5.- Contar la cantidad de nombres ");
+            Console.WriteLine("6.- Mostrar Alumnos BD");
             Console.WriteLine("");
             Console.BackgroundColor = ConsoleColor.Blue; 
             Console.Write("Elija una opción: ");
@@ -177,10 +223,7 @@ namespace libreria
 
             return opcion;
 
-
         }
     }
-
-
     
 }

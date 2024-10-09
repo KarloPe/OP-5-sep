@@ -117,6 +117,38 @@ namespace libreriaClase{
             Console.ReadKey();
         }
 
+        public object countPersonNameBD (string rNombre) {
+
+            object cantidadObjeto;
+
+            Comando.CommandText ="select count(*) from persona where Nombre = '" + rNombre + "'";
+
+            Comando.CommandType=CommandType.Text;
+            Conector.Open();
+            cantidadObjeto= Comando.ExecuteScalar();
+
+            Conector.Close();
+
+
+            return cantidadObjeto;
+
+        }
+
+        public void mostrarAlumnos() {
+
+            string sql = "SELECT * FROM 5to_escuela.persona";
+            Comando.CommandText = sql;
+            Conector.Open();
+            MySqlDataReader datos = Comando.ExecuteReader();
+
+            while (datos.Read()) {
+
+                    Console.WriteLine (datos[0]+" -- "+datos[1]);
+            }
+            datos.Close();
+
+        }
 
     }
+    
 } 
